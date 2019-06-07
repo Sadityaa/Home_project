@@ -40,7 +40,7 @@ loginchecker : boolean;
     });
     //Login Start
     this.login_Form = new FormGroup({
-      'l_email': new FormControl(null, [Validators.required, Validators.email]),
+      'l_email': new FormControl(null, [Validators.required, Validators.email]), 
       'l_password': new FormControl('', [Validators.required])
     });
         
