@@ -15,8 +15,9 @@
     <button type="submit" class="btn btn-default">Submit</button>
   </form> -->
   <div class="col-sm-6">
-      <h2>New User Register Here</h2>
+     
     <form class="register common_forms" [formGroup]="registerForm" (ngSubmit)="onRegister()" >
+        <h2>New User Register Here</h2>
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" class="form-control" formControlName="name">
@@ -51,14 +52,17 @@
     </form>
     <div>
         <p>name: {{ reactive_register.r_name }}</p>
-        <p>name: {{ reactive_register.r_email }}</p>
-        <p>name: {{ reactive_register.r_password }}</p>
+        <p>Email: {{ reactive_register.r_email }}</p>
+        <p>Password: {{ reactive_register.r_password }}</p>
     </div>
   </div>
   <div class="col-sm-6">
-      <h2>Login Here</h2>
+      <div class="login_con">
+          <h2>If You Alreay register</h2>
+          <p>Please check login details in Console/Application</p>
+      </div>
     <form class="login common_forms" [formGroup]="login_Form" (ngSubmit)="onLogin()">
-     
+        <h2>Login Here</h2>
       <div class="form-group">
           <label for="l_email">Email</label>
           <input type="text" class="form-control" name="l_email" id="l_email" formControlName='l_email' onpaste="return false;" >
@@ -76,6 +80,7 @@
   </div>
 </div>
 
+<!-- Currectly Not wroking -->
 <div id="myModal" class="modal fade" role="dialog" *ngIf="loginchecker">
   <div class="modal-dialog">
 
