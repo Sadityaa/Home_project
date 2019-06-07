@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-loginchecker : boolean = true;
+loginchecker : boolean;
 
   registerForm : FormGroup;
   reactive_register = {
@@ -63,17 +63,23 @@ loginchecker : boolean = true;
   }
   
   onLogin(){
+    //debugger
     this.reactive_login.lo_email = this.login_Form.value.l_email;
     this.reactive_login.lo_pass = this.login_Form.value.l_password;
-
+    
     if(this.reactive_login.lo_email === localStorage.getItem('key_email') && this.reactive_login.lo_pass === localStorage.getItem('key_password')){
-      this.router.navigate(['/about'], {relativeTo: this.activateRoute})
+     // this.loginchecker = false;
+      this.router.navigate(['/about'], {relativeTo: this.activateRoute});
+      
+      
+     
 
     }else{
-      //alert('Incorrect username or password.');
-      this.loginchecker = false;
+      alert('Incorrect username or password.');
+      //this.loginchecker = true;
       console.log(this.loginchecker)
     }
+ 
 
     console.log(this.reactive_login.lo_email);
     console.log(this.reactive_login.lo_pass);
