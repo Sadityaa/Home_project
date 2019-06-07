@@ -1,0 +1,96 @@
+<div class="container">
+  <!-- <h2>Vertical (basic) form</h2> -->
+  <!-- <form action="/action_page.php">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form> -->
+  <div class="col-sm-6">
+      <h2>New User Register Here</h2>
+    <form class="register common_forms" [formGroup]="registerForm" (ngSubmit)="onRegister()" >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-control" formControlName="name">
+        <span class="help-block" *ngIf="!registerForm.get('name').valid && registerForm.get('name').touched">Invalid User Name</span>
+      </div>
+      <!-- End -->
+      <div class="form-group">
+        <label for="name">Email</label>
+        <input type="email" id="email" name="email" class="form-control"  formControlName="email" autocomplete="off">
+        <span class="help-block" *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Invalid Email Address</span>
+      </div>
+      <!-- End -->
+      <div class="form-group">
+        <label for="name">Password</label>
+        <input type="password" id="password" name="password" class="form-control" formControlName="password" autocomplete="off">
+        <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Password length 8 One Capitial and One Numeric</span>
+      </div>
+      <!-- End -->
+      <div class="form-group">
+        <div class="radio-inline" *ngFor="let gender of genders">
+            <label for="{{gender}}">
+                <input type="radio" [value]="gender" name="gender" id="{{gender}}"> {{gender}}
+            </label>
+        </div>
+        
+      </div>
+      <!-- End -->
+      <div class="form-group">
+        <button class="btn btn-primary" [disabled]="!registerForm.valid">Submit</button>
+      </div>
+      <!-- End -->
+    </form>
+    <div>
+        <p>name: {{ reactive_register.r_name }}</p>
+        <p>name: {{ reactive_register.r_email }}</p>
+        <p>name: {{ reactive_register.r_password }}</p>
+    </div>
+  </div>
+  <div class="col-sm-6">
+      <h2>Login Here</h2>
+    <form class="login common_forms" [formGroup]="login_Form" (ngSubmit)="onLogin()">
+     
+      <div class="form-group">
+          <label for="l_email">Email</label>
+          <input type="text" class="form-control" name="l_email" id="l_email" formControlName='l_email' onpaste="return false;" >
+          <span class="help-block" *ngIf="!login_Form.get('l_email').valid && login_Form.get('l_email').touched">Invalid Email</span>
+      </div>
+      <div class="form-group">
+          <label for="l_email">Password</label>
+          <input type="password" class="form-control" name="l_password" id="l_password" formControlName='l_password'>
+          <span class="help-block" *ngIf="!login_Form.get('l_password').valid && login_Form.get('l_password').touched">InValid Password</span>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" [disabled]="!login_Form.valid" data-toggle="modal" data-target="#myModal">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog" *ngIf="loginchecker">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Error</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please Check given Username and Password Not Macthed!...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>

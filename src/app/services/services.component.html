@@ -1,0 +1,42 @@
+<div class="container">
+<div class="row">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="text-center">Services Page</h1>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+           <div class="col-md-6">
+                <img src="http://lorempixel.com/550/300" alt="img">
+            </div>
+            <div class="col-md-6">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<h3>Data Coming Form JSON Assests/UserTable.json</h3>
+<table class="table table-stripped">
+    <!-- ADD HEADERS -->
+    <tr>
+        <th>ID</th>
+        <th>Name </th>
+        <th>Roll</th>
+        <th>Company</th>
+    </tr>
+
+    <!-- BIND ARRAY TO TABLE -->
+    <tr *ngFor="let ourservice of ourservices">
+        <td>{{ourservice.id}}</td>
+        <td>{{ourservice.name}}</td>
+        <td>{{ourservice.roll}}</td>
+        <td>{{ourservice.company}}</td>
+    </tr>
+</table>
+<p>Count: {{num}}</p>
+    <button (click)="increment()">Increment</button>
+
+</div>
+</div>

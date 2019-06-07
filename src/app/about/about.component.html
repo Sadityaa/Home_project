@@ -1,0 +1,60 @@
+<div class="container">
+<div class="row">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="text-center">About Page</h1>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="http://lorempixel.com/550/300" alt="img">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <button onclick="">Click Me</button>
+
+</div>
+<div class="row">
+    <div ng-app="myapp">
+
+
+<div  ng-init="showhide=true" ng-controller="myctrl">
+
+        <a href="#" ng-hide="showhide" style="display: none">some link</a>
+        <h1 ng-hide="showhide"  style="display: none">heading tag</h1>
+        <button ng-hide="showhide" style="display: none"> some button </button>
+        <h2 ng-hide="!showhide">shown on load</h2>
+        <br />
+        <br />
+        <button ng-click="showall(true)"> Click hide </button>
+        <button ng-click="showall(false)"> Click to show </button>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+    <script type="text/javascript">
+        
+          var app = angular.module('myapp', []);
+        app.controller('myctrl', myctrl);
+
+        function myctrl($scope) {
+
+            $scope.showall = function (flag) {
+                $scope.showhide = flag;
+            }
+        }
+        $(document).ready(function(){
+        $("button").click(function(){
+            $("#box").load("http://examples/html/test-content.html #hint");
+        });
+    });
+
+    </script>

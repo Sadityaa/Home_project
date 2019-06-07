@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="login">
+				
+			<form [formGroup]="loginForm" class="common_forms">
+					<h2>Please Login here</h2>
+				<div class="form-group">
+					<label>User Name</label>
+					<input type="email" name="username" class="form-control" formControlName="username">
+					<span class="help-block" *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Please Enter Email Id</span> 
+				</div>
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" name="password"  class="form-control" formControlName="password">
+					 <span class="help-block" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please Enter Password</span> 
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary" [disabled]="!loginForm.valid" (click)="onSub()">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <app-reactive-list></app-reactive-list>
+  </div>
+  <div>
+    <div class="table-responsive">
+			<table class="table table-bordered">
+          <thead>
+            <tr>
+              
+              <th>ID</th>
+              <th>User Name</th>
+              <!-- <th>Actions View</th> -->
+               <th>Actions</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; let i = index">
+              <td>{{ user.userid }}</td>
+              <td>{{ user.name }}</td>
+              <td>
+                <a class="btn btn-primary">View</a>
+                <a class="btn btn-success" (click)="onEdit(i)">Edit</a>
+                <a class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+       </table>
+    </div>
+  </div>
+</div>

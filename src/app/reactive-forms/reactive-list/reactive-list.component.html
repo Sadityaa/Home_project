@@ -1,0 +1,26 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-danger">Cancel</button>
+    </div>
+  </div>
+  <!-- Row End -->
+  <div class="row">
+    <div class="col-xs-12">
+      <!-- group end -->
+      <div class="form-group">
+          <label for="id">Id Url</label>
+          <input type="text"  id="id" class="form-control" formControlName="id">
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control"  formControlName="name">
+      </div>
+        <!-- Group End -->
+        
+    </div>
+  </div>
+  <!-- Row End -->
+  
+</form>

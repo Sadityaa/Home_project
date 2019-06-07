@@ -1,0 +1,71 @@
+<div class="container">
+	<div class="row">
+		<app-userlist></app-userlist>
+	</div>
+	<div class="row">
+		<div class="table-responsive">
+			<div class="form-group">
+					<div class="col-sm-4 pull-right">
+							<input type="text" name=""   class="form-control pull-right" [(ngModel)]="searchFilter" placeholder="Search Name">
+							<!-- <input type="text" class="form-control typeahead border-primary" name="query" id="query" [(ngModel)]="searchFilter" placeholder="Start typing something to search..." data-provide="typeahead" autocomplete="off"> -->
+					</div>
+			</div>
+			<br><br>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						
+						<th>ID</th>
+						<th>User Name</th>
+						<!-- <th>Actions View</th> -->
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let user of users | filter:searchFilter:'name'; let j = index" >
+						
+						<td>{{ user.userid }}</td>
+						<td>{{ user.name }}</td>
+						<!-- <td> <a href="">{{ user.views }} </a> </td> -->
+						 <td>
+							<a style="cursor:pointer" class="btn btn-primary"  data-toggle="modal" data-target="#model{{user.userid}}" href="#model{{user.userid}}">View {{k}}</a>
+							<a style="cursor:pointer" class="btn btn-success"  (click)="onEditItem(j)">Edit</a>	
+							<a style="cursor: pointer;" (click)="onDelete(j)" class="btn btn-danger">Delete </a>
+							  <!-- [routerLink]="['/users', user.userid]" -->
+							 
+							 </td>
+						<!-- <td>user.skill</td>
+						<td>user.designation</td>
+						<td>user.department</td>
+						<td>user.manager</td>
+						<td>user.view</td> -->
+
+					
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" role="dialog" *ngFor="let user of users; let k = index"   id="model{{user.userid}}">
+	<div class="modal-dialog">
+  
+	  
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+		  <h4 class="modal-title">{{ user.userid }}</h4>
+		</div>
+		<div class="modal-body">
+		  <p>{{ user.name }}</p>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+		</div>
+	  </div>
+  
+	</div>
+	</div>
+<!-- <router-outlet></router-outlet> -->
